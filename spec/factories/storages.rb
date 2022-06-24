@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :storage do
-    fund { nil }
+    fund
     name { "MyString" }
     geom { "" }
     city { "MyString" }

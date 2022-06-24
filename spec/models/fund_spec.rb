@@ -1,3 +1,7 @@
 RSpec.describe Fund, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "initial test" do
+    subject { create(:fund) }
+
+    it { is_expected.to be_persisted }
+  end
 end

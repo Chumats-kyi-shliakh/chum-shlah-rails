@@ -1,3 +1,7 @@
 RSpec.describe CustomerOrder, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "initial test" do
+    subject { create(:customer_order) }
+
+    it { is_expected.to be_persisted }
+  end
 end

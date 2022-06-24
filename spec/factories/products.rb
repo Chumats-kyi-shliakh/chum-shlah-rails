@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    category { nil }
+    category
     name { "MyString" }
     weight { 1 }
     height { 1 }

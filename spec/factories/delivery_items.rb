@@ -3,8 +3,8 @@ FactoryBot.define do
     outdated { false }
     status { 1 }
     quantity { 1 }
-    delivery { nil }
-    cart_item { nil }
-    product_availability { nil }
+    delivery
+    cart_item
+    product_availability
   end
 end

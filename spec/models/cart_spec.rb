@@ -1,3 +1,7 @@
 RSpec.describe Cart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "initial test" do
+    subject { create(:cart) }
+
+    it { is_expected.to be_persisted }
+  end
 end

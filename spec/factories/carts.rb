@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :cart do
-    customer_order { nil }
+    customer_order
   end
 end
