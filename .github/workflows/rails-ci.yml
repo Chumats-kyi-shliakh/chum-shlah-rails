@@ -34,7 +34,9 @@ jobs:
         with:
           bundler-cache: true
       - name: Rspec
-        run: bundle exec rspec -f d
+        run: |
+          bundle exec rails db:create db:migrate
+          bundle exec rspec -f d
 
   brakeman:
     name: Brakeman
