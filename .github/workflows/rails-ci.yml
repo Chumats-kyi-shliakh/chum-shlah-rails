@@ -15,12 +15,17 @@ jobs:
   rspec:
     name: Rspec
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:10-2.5
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       RAILS_ENV: test
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
-      - uses: huaxk/postgis-action@v1
         with:
           bundler-cache: true
       - name: Rspec
