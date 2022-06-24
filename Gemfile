@@ -12,14 +12,17 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+
+# Oj for faster json
+gem "oj", "~> 3.13"
+
+# Blueprinter for json serialization
+gem "blueprinter", "~> 0.25"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -39,10 +42,16 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "brakeman", "~> 5.2"
+  gem "faker", "~> 2.20"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "rspec-rails", "~> 5.1"
+  gem "rubocop-shopify", require: false
+  gem "rubocop-rails", "~> 2.14"
+  gem "rubocop-rspec", "~> 2.9"
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
