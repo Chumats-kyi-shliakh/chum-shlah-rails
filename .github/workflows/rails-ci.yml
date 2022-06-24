@@ -15,15 +15,29 @@ jobs:
   rspec:
     name: Rspec
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:10-2.5
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     env:
       RAILS_ENV: test
+      DATABASE_URL: postgis://postgres:@localhost:5432/test
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       - name: Rspec
-        run: bundle exec rspec -f d
+        run: |
+          bundle exec rails db:create db:migrate
+          bundle exec rspec -f d
 
   brakeman:
     name: Brakeman
