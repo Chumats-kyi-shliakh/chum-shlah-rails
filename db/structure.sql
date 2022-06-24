@@ -561,8 +561,8 @@ ALTER TABLE ONLY public.products
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20220624122941'),
 ('20220624122942'),
-('20220624125106'),
 ('20220624125534'),
 ('20220624130743'),
 ('20220624130854'),
