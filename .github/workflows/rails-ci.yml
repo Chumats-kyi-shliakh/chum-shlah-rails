@@ -28,6 +28,7 @@ jobs:
           --health-retries 5
     env:
       RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:@localhost:5432/test
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
