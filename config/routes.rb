@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         resources :drivers, only: %i[index show]
         resources :funds, only: %i[index show create update destroy]
         resources :products, only: %i[index show create update destroy]
-        resources :storages, shallow: true, only: %i[index] do # Different API
+        resources :storages, shallow: true, only: %i[index create] do # Different API
           resources :product_availabilities, only: %i[index show]
         end
       end
