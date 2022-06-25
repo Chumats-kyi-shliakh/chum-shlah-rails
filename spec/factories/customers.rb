@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :customer do
-    geom { "" }
+    name { "MyName" }
   end
 end
