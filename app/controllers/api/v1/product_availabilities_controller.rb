@@ -2,7 +2,7 @@ module Api
   module V1
     class ProductAvailabilitiesController < ApplicationController
       def index
-        render json: ProductAvailabilityBlueprint.render(product_availabilities)
+        render json: ProductAvailabilityBlueprint.render(product_availabilities, view: :normal)
       end
 
       private
