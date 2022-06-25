@@ -2,12 +2,12 @@ module Api
   module V1
     class CustomersController < ApplicationController
       def index
-        render json: CustomerBlueprint.render(customers)
+        render json: CustomerBlueprint.render(customers, view: :normal)
       end
 
       def create
         create_customer
-        render json: CustomerBlueprint.render(customer)
+        render json: CustomerBlueprint.render(customer, view: :normal)
       end
 
       private

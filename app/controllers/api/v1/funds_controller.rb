@@ -2,21 +2,21 @@ module Api
   module V1
     class FundsController < ApplicationController
       def index
-        render json: FundBlueprint.render(funds)
+        render json: FundBlueprint.render(funds, view: :normal)
       end
 
       def show
-        render json: FundBlueprint.render(fund)
+        render json: FundBlueprint.render(fund, view: :normal)
       end
 
       def create
         create_fund
-        render json: FundBlueprint.render(fund)
+        render json: FundBlueprint.render(fund, view: :normal)
       end
 
       def update
         update_fund
-        render json: FundBlueprint.render(fund)
+        render json: FundBlueprint.render(fund, view: :normal)
       end
 
       def destroy

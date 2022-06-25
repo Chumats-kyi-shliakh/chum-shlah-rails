@@ -2,21 +2,21 @@ module Api
   module V1
     class CustomerOrdersController < ApplicationController
       def index
-        render json: CustomerOrderBlueprint.render(customer_orders)
+        render json: CustomerOrderBlueprint.render(customer_orders, view: :normal)
       end
 
       def show
-        render json: CustomerOrderBlueprint.render(customer_order)
+        render json: CustomerOrderBlueprint.render(customer_order, view: :normal)
       end
 
       def create
         create_customer_order
-        render json: CustomerOrderBlueprint.render(customer_order), status: :created
+        render json: CustomerOrderBlueprint.render(customer_order, view: :normal), status: :created
       end
 
       def update
         update_customer_order
-        render json: CustomerOrderBlueprint.render(customer_order)
+        render json: CustomerOrderBlueprint.render(customer_order, view: :normal)
       end
 
       private

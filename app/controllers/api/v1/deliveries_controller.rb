@@ -2,17 +2,17 @@ module Api
   module V1
     class DeliveriesController < ApplicationController
       def index
-        render json: DeliveryBlueprint.render(deliveries)
+        render json: DeliveryBlueprint.render(deliveries, view: :normal)
       end
 
       def create
         create_delivery
-        render json DeliveryBlueprint.render(delivery)
+        render json DeliveryBlueprint.render(delivery, view: :normal)
       end
 
       def update
         update_delivery
-        render json: DeliveryBlueprint.render(delivery)
+        render json: DeliveryBlueprint.render(delivery, view: :normal)
       end
 
       private

@@ -2,17 +2,17 @@ module Api
   module V1
     class DeliveryItemsController < ApplicationController
       def index
-        render json: DeliveryItemBlueprint.render(delivery_items)
+        render json: DeliveryItemBlueprint.render(delivery_items, view: :normal)
       end
 
       def create
         create_delivery_item
-        render json: DeliveryItemBlueprint.render(delivery_item), status: :created
+        render json: DeliveryItemBlueprint.render(delivery_item, view: :normal), status: :created
       end
 
       def update
         update_delivery_item
-        render json: DeliveryItemBlueprint.render(delivery_item)
+        render json: DeliveryItemBlueprint.render(delivery_item, view: :normal)
       end
 
       def destroy

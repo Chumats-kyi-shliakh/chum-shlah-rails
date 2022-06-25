@@ -2,21 +2,21 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        render json: ProductBlueprint.render(products)
+        render json: ProductBlueprint.render(products, view: :normal)
       end
 
       def show
-        render json: ProductBlueprint.render(product)
+        render json: ProductBlueprint.render(product, view: :normal)
       end
 
       def create
         create_product
-        render json: ProductBlueprint.render(product)
+        render json: ProductBlueprint.render(product, view: :normal)
       end
 
       def update
         update_product
-        render json: ProductBlueprint.render(product)
+        render json: ProductBlueprint.render(product, view: :normal)
       end
 
       def destroy

@@ -2,12 +2,12 @@ module Api
   module V1
     class CartsController < ApplicationController
       def show
-        render json: CartBlueprint.render(cart)
+        render json: CartBlueprint.render(cart, view: :normal)
       end
 
       def create
         create_cart
-        render json: CartBlueprint.render(cart), status: :created
+        render json: CartBlueprint.render(cart, view: :normal), status: :created
       end
 
       def destroy

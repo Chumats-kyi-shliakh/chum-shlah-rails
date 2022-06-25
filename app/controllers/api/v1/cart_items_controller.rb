@@ -7,12 +7,12 @@ module Api
 
       def create
         create_cart_item
-        render json: CartItemBlueprint.render(cart_item), status: :created
+        render json: CartItemBlueprint.render(cart_item, view: :normal), status: :created
       end
 
       def update
         update_cart_item
-        render json: CartItemBlueprint.render(cart_item)
+        render json: CartItemBlueprint.render(cart_item, view: :normal)
       end
 
       def destroy

@@ -2,11 +2,11 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       def index
-        render json: CategoryBlueprint.render(categories)
+        render json: CategoryBlueprint.render(categories, view: :normal)
       end
 
       def show
-        render json: CategoryBlueprint.render(category)
+        render json: CategoryBlueprint.render(category, view: :normal)
       end
 
       private
