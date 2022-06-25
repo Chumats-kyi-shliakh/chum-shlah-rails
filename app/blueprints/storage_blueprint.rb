@@ -4,6 +4,6 @@ class StorageBlueprint < Blueprinter::Base
   fields :name, :geom, :city, :street, :postal_code, :country, :house_number
 
   view :normal do
-    association :product_availabilities, blueprint: ProductAvailabilitiBlueprint
+    association :product_availabilities, blueprint: ProductAvailabilityBlueprint
   end
 end
