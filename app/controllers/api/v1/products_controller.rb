@@ -39,7 +39,9 @@ module Api
       end
 
       def products
-        @products ||= category.products.all
+        query = Product.all
+        query = query.where(category: category) if params.key? :category_id
+        @products ||= query
       end
 
       def product
