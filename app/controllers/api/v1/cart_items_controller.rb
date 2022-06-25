@@ -23,11 +23,11 @@ module Api
       private
 
       def create_cart_item
-        cart_items.create!(create_cart_item_params)
+        @cart_item = cart_items.create!(create_cart_item_params)
       end
 
       def update_cart_item
-        cart_item.update!(update_cart_item_params)
+        @cart_item = cart_item.update!(update_cart_item_params)
       end
 
       def destroy_cart_item

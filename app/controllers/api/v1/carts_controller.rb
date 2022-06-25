@@ -5,6 +5,10 @@ module Api
         render json: CartBlueprint.render(cart, view: :normal)
       end
 
+      def index
+        render json: CartBlueprint.render(cart, view: :normal)
+      end
+
       def create
         create_cart
         render json: CartBlueprint.render(cart, view: :normal), status: :created
@@ -18,11 +22,15 @@ module Api
       private
 
       def cart
-        @cart ||= customer.cart
+        @cart ||= customer.carts.order(updated_at: :desc).first
+      end
+
+      def carts
+        @carts = customer.carts
       end
 
       def create_cart
-        customer.create_cart!
+        @cart = customer.carts.create!
       end
 
       def destroy_cart

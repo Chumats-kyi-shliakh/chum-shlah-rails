@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :categories, only: %i[index show]
         resources :customers, only: %i[index create] do
-          resources :carts, only: %i[create destroy]
+          resources :carts, only: %i[index create destroy]
           get 'cart', to: 'carts#show'
 
           resources :cart_items, only: %i[index create update destroy]

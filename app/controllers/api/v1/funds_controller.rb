@@ -27,11 +27,11 @@ module Api
       private
 
       def create_fund
-        funds.create!(create_fund_params)
+        @fund = funds.create!(create_fund_params)
       end
 
       def update_fund
-        fund.update!(update_fund_params)
+        @fund = fund.update!(update_fund_params)
       end
 
       def destroy_fund

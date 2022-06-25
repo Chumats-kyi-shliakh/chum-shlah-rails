@@ -18,11 +18,11 @@ module Api
       private
 
       def create_delivery
-        driver.deliveries.create!(create_delivery_params)
+        @delivery = driver.deliveries.create!(create_delivery_params)
       end
 
       def update_delivery
-        delivery.update!(update_delivery_params)
+        @delivery = delivery.update!(update_delivery_params)
       end
 
       def delivery

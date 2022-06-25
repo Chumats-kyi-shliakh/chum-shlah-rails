@@ -22,11 +22,11 @@ module Api
       private
 
       def create_customer_order
-        customer_orders.create!(create_customer_order_params)
+        @customer_order = customer_orders.create!(create_customer_order_params)
       end
 
       def update_customer_order
-        customer_order.update!(update_customer_order_params)
+        @customer_order = customer_order.update!(update_customer_order_params)
       end
 
       def customer_order

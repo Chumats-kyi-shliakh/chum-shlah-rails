@@ -27,11 +27,11 @@ module Api
       private
 
       def create_product
-        products.create!(create_product_params)
+        @product = products.create!(create_product_params)
       end
 
       def update_product
-        product.update!(update_product_params)
+        @product = product.update!(update_product_params)
       end
 
       def destroy_product

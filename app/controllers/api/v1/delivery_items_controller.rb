@@ -31,11 +31,11 @@ module Api
       end
 
       def create_delivery_item
-        delivery_items.create!(create_delivery_item_params)
+        @delivery_item = delivery_items.create!(create_delivery_item_params)
       end
 
       def update_delivery_item
-        delivery_item.update!(update_delivery_item_params)
+        @delivery_item = delivery_item.update!(update_delivery_item_params)
       end
 
       def destroy_delivery_item

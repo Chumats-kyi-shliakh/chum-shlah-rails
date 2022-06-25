@@ -13,11 +13,15 @@ module Api
       private
 
       def create_customer
-        customers.create!(create_customer_params)
+        @customer = customers.create!(create_customer_params)
       end
 
       def customers
         @customers ||= Customer.all
+      end
+
+      def customer
+        @customer ||= Customer.find(params[:id])
       end
 
       def create_customer_params

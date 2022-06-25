@@ -3,7 +3,7 @@ class DeliveryBlueprint < Blueprinter::Base
 
   fields :status, :route
 
-  view :normmal do
+  view :normal do
     association :delivery_items, blueprint: DeliveryItemBlueprint
   end
 end
