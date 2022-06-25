@@ -82,8 +82,8 @@ test:
 #
 production:
   <<: *default
-  # url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
-  url: ENV['CUSTOM_DB_URL'] 
+  # url: 
+  url: <%= ENV.fetch('CUSTOM_DB_URL', ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis")) %>
   database: chum_shlah_rails_production
   username: chum_shlah_rails
   password: <%= ENV["CHUM_SHLAH_RAILS_DATABASE_PASSWORD"] %>
