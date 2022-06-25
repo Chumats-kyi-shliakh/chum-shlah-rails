@@ -5,6 +5,6 @@ class CustomerBlueprint < Blueprinter::Base
 
   view :normal do
     association :customer_orders, blueprint: CustomerOrderBlueprint
-    association :cart, blueprint: CartBlueprint
+    association :carts, blueprint: CartBlueprint
   end
 end
