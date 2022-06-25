@@ -5,7 +5,15 @@ module Api
         render json: ProductAvailabilityBlueprint.render(product_availabilities, view: :normal)
       end
 
+      def show
+        render json: ProductAvailabilityBlueprint.render(product_availability, view: :normal)
+      end
+
       private
+
+      def product_availability
+        @product_availability ||= product_availabilities.find(params[:id])
+      end
 
       def product_availabilities
         @product_availabilities ||= storage.product_availabilities.includes(product: :category)

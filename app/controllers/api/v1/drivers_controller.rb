@@ -16,7 +16,7 @@ module Api
       end
 
       def driver
-        driver.find(params[:id])
+        drivers.find(params[:id])
       end
     end
   end
