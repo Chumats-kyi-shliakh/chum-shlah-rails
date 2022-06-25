@@ -73,7 +73,7 @@ CREATE TABLE public.cart_items (
 
 CREATE TABLE public.carts (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    customer_order_id uuid NOT NULL,
+    customer_id uuid,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -99,8 +99,15 @@ CREATE TABLE public.categories (
 CREATE TABLE public.customer_orders (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     customer_id uuid NOT NULL,
+    cart_id uuid NOT NULL,
     route jsonb,
-    status integer,
+    status integer DEFAULT 0 NOT NULL,
+    geom public.geometry(Point,4326),
+    country character varying,
+    city character varying,
+    postal_code character varying,
+    street character varying,
+    house_number character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -112,7 +119,7 @@ CREATE TABLE public.customer_orders (
 
 CREATE TABLE public.customers (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    geom public.geometry,
+    name character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -124,7 +131,7 @@ CREATE TABLE public.customers (
 
 CREATE TABLE public.deliveries (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    status integer,
+    status integer DEFAULT 0 NOT NULL,
     route jsonb,
     driver_id uuid NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
@@ -138,9 +145,9 @@ CREATE TABLE public.deliveries (
 
 CREATE TABLE public.delivery_items (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    outdated boolean,
-    status integer,
-    quantity integer,
+    outdated boolean DEFAULT false NOT NULL,
+    status integer DEFAULT 1 NOT NULL,
+    quantity integer DEFAULT 1 NOT NULL,
     delivery_id uuid NOT NULL,
     cart_item_id uuid NOT NULL,
     product_availability_id uuid NOT NULL,
@@ -225,7 +232,7 @@ CREATE TABLE public.storages (
     id bigint NOT NULL,
     fund_id uuid NOT NULL,
     name character varying,
-    geom public.geometry,
+    geom public.geometry(Point,4326),
     city character varying,
     street character varying,
     postal_code character varying,
@@ -375,6 +382,27 @@ ALTER TABLE ONLY public.storages
 
 
 --
+-- Name: customer_orders_geog_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customer_orders_geog_idx ON public.customer_orders USING gist (public.geography(geom));
+
+
+--
+-- Name: customer_orders_geom_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customer_orders_geom_idx ON public.customer_orders USING gist (geom);
+
+
+--
+-- Name: customer_orders_geom_ua_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customer_orders_geom_ua_idx ON public.customer_orders USING gist (public.st_transform(geom, 5558));
+
+
+--
 -- Name: index_cart_items_on_cart_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -389,10 +417,17 @@ CREATE INDEX index_cart_items_on_product_id ON public.cart_items USING btree (pr
 
 
 --
--- Name: index_carts_on_customer_order_id; Type: INDEX; Schema: public; Owner: -
+-- Name: index_carts_on_customer_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_carts_on_customer_order_id ON public.carts USING btree (customer_order_id);
+CREATE INDEX index_carts_on_customer_id ON public.carts USING btree (customer_id);
+
+
+--
+-- Name: index_customer_orders_on_cart_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_customer_orders_on_cart_id ON public.customer_orders USING btree (cart_id);
 
 
 --
@@ -499,14 +534,6 @@ ALTER TABLE ONLY public.product_availabilities
 
 
 --
--- Name: carts fk_rails_614af91b77; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.carts
-    ADD CONSTRAINT fk_rails_614af91b77 FOREIGN KEY (customer_order_id) REFERENCES public.customer_orders(id);
-
-
---
 -- Name: cart_items fk_rails_681a180e84; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -531,6 +558,14 @@ ALTER TABLE ONLY public.delivery_items
 
 
 --
+-- Name: customer_orders fk_rails_9d1bd81116; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.customer_orders
+    ADD CONSTRAINT fk_rails_9d1bd81116 FOREIGN KEY (cart_id) REFERENCES public.carts(id);
+
+
+--
 -- Name: delivery_items fk_rails_abaa99d81a; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -544,6 +579,14 @@ ALTER TABLE ONLY public.delivery_items
 
 ALTER TABLE ONLY public.deliveries
     ADD CONSTRAINT fk_rails_dbbcd08797 FOREIGN KEY (driver_id) REFERENCES public.drivers(id);
+
+
+--
+-- Name: carts fk_rails_e02ab95379; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.carts
+    ADD CONSTRAINT fk_rails_e02ab95379 FOREIGN KEY (customer_id) REFERENCES public.customers(id);
 
 
 --
@@ -569,10 +612,11 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220624131154'),
 ('20220624132248'),
 ('20220624133729'),
+('20220624142951'),
 ('20220624142952'),
-('20220624143144'),
 ('20220624143213'),
 ('20220624143944'),
-('20220624144233');
+('20220624144233'),
+('20220624211155');
 
 

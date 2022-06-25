@@ -1,0 +1,210 @@
+--[ Route 1 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_categories
+Verb              | GET
+URI               | /api/v1/categories(.:format)
+Controller#Action | api/v1/categories#index {:format=>:json}
+--[ Route 2 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_category
+Verb              | GET
+URI               | /api/v1/categories/:id(.:format)
+Controller#Action | api/v1/categories#show {:format=>:json}
+--[ Route 3 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_carts
+Verb              | POST
+URI               | /api/v1/customers/:customer_id/carts(.:format)
+Controller#Action | api/v1/carts#create {:format=>:json}
+--[ Route 4 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_cart
+Verb              | DELETE
+URI               | /api/v1/customers/:customer_id/carts/:id(.:format)
+Controller#Action | api/v1/carts#destroy {:format=>:json}
+--[ Route 5 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | GET
+URI               | /api/v1/customers/:customer_id/cart(.:format)
+Controller#Action | api/v1/carts#show {:format=>:json}
+--[ Route 6 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_cart_items
+Verb              | GET
+URI               | /api/v1/customers/:customer_id/cart_items(.:format)
+Controller#Action | api/v1/cart_items#index {:format=>:json}
+--[ Route 7 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/customers/:customer_id/cart_items(.:format)
+Controller#Action | api/v1/cart_items#create {:format=>:json}
+--[ Route 8 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_cart_item
+Verb              | PATCH
+URI               | /api/v1/customers/:customer_id/cart_items/:id(.:format)
+Controller#Action | api/v1/cart_items#update {:format=>:json}
+--[ Route 9 ]---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/customers/:customer_id/cart_items/:id(.:format)
+Controller#Action | api/v1/cart_items#update {:format=>:json}
+--[ Route 10 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | DELETE
+URI               | /api/v1/customers/:customer_id/cart_items/:id(.:format)
+Controller#Action | api/v1/cart_items#destroy {:format=>:json}
+--[ Route 11 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_customer_orders
+Verb              | GET
+URI               | /api/v1/customers/:customer_id/customer_orders(.:format)
+Controller#Action | api/v1/customer_orders#index {:format=>:json}
+--[ Route 12 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/customers/:customer_id/customer_orders(.:format)
+Controller#Action | api/v1/customer_orders#create {:format=>:json}
+--[ Route 13 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customer_customer_order
+Verb              | GET
+URI               | /api/v1/customers/:customer_id/customer_orders/:id(.:format)
+Controller#Action | api/v1/customer_orders#show {:format=>:json}
+--[ Route 14 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PATCH
+URI               | /api/v1/customers/:customer_id/customer_orders/:id(.:format)
+Controller#Action | api/v1/customer_orders#update {:format=>:json}
+--[ Route 15 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/customers/:customer_id/customer_orders/:id(.:format)
+Controller#Action | api/v1/customer_orders#update {:format=>:json}
+--[ Route 16 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_customers
+Verb              | GET
+URI               | /api/v1/customers(.:format)
+Controller#Action | api/v1/customers#index {:format=>:json}
+--[ Route 17 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/customers(.:format)
+Controller#Action | api/v1/customers#create {:format=>:json}
+--[ Route 18 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_delivery_delivery_items
+Verb              | GET
+URI               | /api/v1/deliveries/:delivery_id/delivery_items(.:format)
+Controller#Action | api/v1/delivery_items#index {:format=>:json}
+--[ Route 19 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/deliveries/:delivery_id/delivery_items(.:format)
+Controller#Action | api/v1/delivery_items#create {:format=>:json}
+--[ Route 20 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_delivery_delivery_item
+Verb              | PATCH
+URI               | /api/v1/deliveries/:delivery_id/delivery_items/:id(.:format)
+Controller#Action | api/v1/delivery_items#update {:format=>:json}
+--[ Route 21 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/deliveries/:delivery_id/delivery_items/:id(.:format)
+Controller#Action | api/v1/delivery_items#update {:format=>:json}
+--[ Route 22 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | DELETE
+URI               | /api/v1/deliveries/:delivery_id/delivery_items/:id(.:format)
+Controller#Action | api/v1/delivery_items#destroy {:format=>:json}
+--[ Route 23 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_deliveries
+Verb              | GET
+URI               | /api/v1/deliveries(.:format)
+Controller#Action | api/v1/deliveries#index {:format=>:json}
+--[ Route 24 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/deliveries(.:format)
+Controller#Action | api/v1/deliveries#create {:format=>:json}
+--[ Route 25 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_delivery
+Verb              | PATCH
+URI               | /api/v1/deliveries/:id(.:format)
+Controller#Action | api/v1/deliveries#update {:format=>:json}
+--[ Route 26 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/deliveries/:id(.:format)
+Controller#Action | api/v1/deliveries#update {:format=>:json}
+--[ Route 27 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_drivers
+Verb              | GET
+URI               | /api/v1/drivers(.:format)
+Controller#Action | api/v1/drivers#index {:format=>:json}
+--[ Route 28 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_driver
+Verb              | GET
+URI               | /api/v1/drivers/:id(.:format)
+Controller#Action | api/v1/drivers#show {:format=>:json}
+--[ Route 29 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_funds
+Verb              | GET
+URI               | /api/v1/funds(.:format)
+Controller#Action | api/v1/funds#index {:format=>:json}
+--[ Route 30 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/funds(.:format)
+Controller#Action | api/v1/funds#create {:format=>:json}
+--[ Route 31 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_fund
+Verb              | GET
+URI               | /api/v1/funds/:id(.:format)
+Controller#Action | api/v1/funds#show {:format=>:json}
+--[ Route 32 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PATCH
+URI               | /api/v1/funds/:id(.:format)
+Controller#Action | api/v1/funds#update {:format=>:json}
+--[ Route 33 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/funds/:id(.:format)
+Controller#Action | api/v1/funds#update {:format=>:json}
+--[ Route 34 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | DELETE
+URI               | /api/v1/funds/:id(.:format)
+Controller#Action | api/v1/funds#destroy {:format=>:json}
+--[ Route 35 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_products
+Verb              | GET
+URI               | /api/v1/products(.:format)
+Controller#Action | api/v1/products#index {:format=>:json}
+--[ Route 36 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | POST
+URI               | /api/v1/products(.:format)
+Controller#Action | api/v1/products#create {:format=>:json}
+--[ Route 37 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_product
+Verb              | GET
+URI               | /api/v1/products/:id(.:format)
+Controller#Action | api/v1/products#show {:format=>:json}
+--[ Route 38 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PATCH
+URI               | /api/v1/products/:id(.:format)
+Controller#Action | api/v1/products#update {:format=>:json}
+--[ Route 39 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | PUT
+URI               | /api/v1/products/:id(.:format)
+Controller#Action | api/v1/products#update {:format=>:json}
+--[ Route 40 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | 
+Verb              | DELETE
+URI               | /api/v1/products/:id(.:format)
+Controller#Action | api/v1/products#destroy {:format=>:json}
+--[ Route 41 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_storage_product_availabilities
+Verb              | GET
+URI               | /api/v1/storages/:storage_id/product_availabilities(.:format)
+Controller#Action | api/v1/product_availabilities#index {:format=>:json}
+--[ Route 42 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prefix            | api_v1_storages
+Verb              | GET
+URI               | /api/v1/storages(.:format)
+Controller#Action | api/v1/storages#index {:format=>:json}
