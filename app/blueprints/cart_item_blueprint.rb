@@ -5,5 +5,6 @@ class CartItemBlueprint < Blueprinter::Base
   view :normal do
     association :cart, blueprint: CartBlueprint
     association :product, blueprint: ProductBlueprint
+    association :delivery_items, blueprint: DeliveryItemBlueprint
   end
 end
