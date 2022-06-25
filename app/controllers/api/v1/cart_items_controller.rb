@@ -43,7 +43,7 @@ module Api
       end
 
       def cart
-        @cart ||= customer.cart
+        @cart ||= customer.carts.order(updated_at: :desc).first
       end
 
       def customer
