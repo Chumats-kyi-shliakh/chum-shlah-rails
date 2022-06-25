@@ -12,7 +12,7 @@ module Api
       private
 
       def product_availability
-        @product_availability ||= product_availabilities.find(params[:id])
+        @product_availability ||= ProductAvailability.find(params[:id])
       end
 
       def product_availabilities
