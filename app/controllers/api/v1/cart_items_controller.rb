@@ -2,7 +2,7 @@ module Api
   module V1
     class CartItemsController < ApplicationController
       def index
-        render json: CartItemBlueprint.render(cart_items)
+        render json: CartItemBlueprint.render(cart_items, view: :normal)
       end
 
       def create
